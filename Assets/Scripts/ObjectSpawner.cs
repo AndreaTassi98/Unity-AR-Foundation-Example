@@ -11,7 +11,6 @@ public class ObjectSpawner : MonoBehaviour
     void Start()
     {
         placementIndicator = FindObjectOfType<PlacementIndicator>();
-
     }
 
     // Update is called once per frame
@@ -24,7 +23,8 @@ public class ObjectSpawner : MonoBehaviour
             // then instantiate the objectToSpawn on the placementIndicator,
             // with the same position and rotation
             GameObject obj = Instantiate(objectToSpawn,
-                placementIndicator.transform.position, placementIndicator.transform.rotation);
+                placementIndicator.transform.position,
+                placementIndicator.transform.rotation);
         }
     }
 }
