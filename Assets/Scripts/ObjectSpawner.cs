@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class ObjectSpawner : MonoBehaviour
 {
-    public GameObject objectToSpawn;
-    private PlacementIndicator placementIndicator;
+    PlacementIndicator placementIndicator;
+    GameObject objectToSpawn = null;
+
+    public GameObject placeObjectWarningPanel;
 
     // Start is called before the first frame update
     void Start()
@@ -13,18 +15,19 @@ public class ObjectSpawner : MonoBehaviour
         placementIndicator = FindObjectOfType<PlacementIndicator>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SetObjectToSpawn(GameObject objectToSpawn)
     {
-        // if the screen is being touched and this is the first frame that the
-        // first touch is being pressed down
-        if(Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began)
-        {
-            // then instantiate the objectToSpawn on the placementIndicator,
-            // with the same position and rotation
-            GameObject obj = Instantiate(objectToSpawn,
-                placementIndicator.transform.position,
+        this.objectToSpawn = objectToSpawn;
+    }
+
+    public void SpawnObject()
+    {
+        if(objectToSpawn == null)
+            placeObjectWarningPanel.GetComponent<PanelHandler>().SetPanelActive(true);
+        else
+            // instantiate the objectToSpawn on the placementIndicator, with
+            // the same position and rotation
+            Instantiate(objectToSpawn, placementIndicator.transform.position,
                 placementIndicator.transform.rotation);
-        }
     }
 }

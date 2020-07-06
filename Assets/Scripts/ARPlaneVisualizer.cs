@@ -19,7 +19,7 @@ public class ARPlaneVisualizer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        foreach (ARPlane plane in aRPlaneManager.trackables)
+        foreach(ARPlane plane in aRPlaneManager.trackables)
             plane.gameObject.SetActive(visualization);
     }
 
