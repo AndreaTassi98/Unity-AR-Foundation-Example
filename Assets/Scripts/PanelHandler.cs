@@ -7,16 +7,22 @@ using UnityEngine.UI;
 
 public class PanelHandler : MonoBehaviour
 {
-    public GameObject panel;
-
-    public void SetPanelActive(bool active)
+    void OnEnable()
     {
         Button[] buttons =
-            panel.transform.parent.GetComponentsInChildren<Button>(false);
-
-        panel.SetActive(active);
+            gameObject.transform.parent.GetComponentsInChildren<Button>(false);
 
         foreach(Button button in buttons)
-            button.interactable = !active;
+            if(button.transform.parent != gameObject.transform)
+                button.interactable = false;
+    }
+
+    void OnDisable()
+    {
+        Button[] buttons =
+            gameObject.transform.parent.GetComponentsInChildren<Button>(false);
+
+        foreach(Button button in buttons)
+            button.interactable = true;
     }
 }

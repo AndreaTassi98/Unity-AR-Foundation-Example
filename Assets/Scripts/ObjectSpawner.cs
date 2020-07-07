@@ -23,7 +23,7 @@ public class ObjectSpawner : MonoBehaviour
     public void SpawnObject()
     {
         if(objectToSpawn == null)
-            placeObjectWarningPanel.GetComponent<PanelHandler>().SetPanelActive(true);
+            placeObjectWarningPanel.SetActive(true);
         else
             // instantiate the objectToSpawn on the placementIndicator, with
             // the same position and rotation

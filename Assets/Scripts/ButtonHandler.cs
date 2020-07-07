@@ -11,13 +11,13 @@ public class ButtonHandler : MonoBehaviour
 
     public void ChangeText()
     {
-        Text objText = transform.Find("Text").GetComponent<Text>();
+        Text textObject = transform.Find("Text").GetComponent<Text>();
 
         if(i < texts.Length - 1)
             ++i;
         else
             i = 0;
 
-        objText.text = texts[i];
+        textObject.text = texts[i];
     }
 }

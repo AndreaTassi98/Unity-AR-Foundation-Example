@@ -328,8 +328,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 669462805}
-        m_MethodName: SetPanelActive
+      - m_Target: {fileID: 669462801}
+        m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -536,8 +536,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2144036539}
-        m_MethodName: SetPanelActive
+      - m_Target: {fileID: 2144036535}
+        m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -666,8 +666,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 669462805}
-        m_MethodName: SetPanelActive
+      - m_Target: {fileID: 669462801}
+        m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1010,8 +1010,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2144036539}
-        m_MethodName: SetPanelActive
+      - m_Target: {fileID: 2144036535}
+        m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1072,7 +1072,7 @@ GameObject:
   - component: {fileID: 669462805}
   m_Layer: 5
   m_Name: Quit Confirmation Panel
-  m_TagString: Untagged
+  m_TagString: Panel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1148,7 +1148,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e02bd4b8f950224408709d14232c157d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panel: {fileID: 669462801}
 --- !u!1 &692912099
 GameObject:
   m_ObjectHideFlags: 0
@@ -1163,7 +1162,7 @@ GameObject:
   - component: {fileID: 692912101}
   m_Layer: 5
   m_Name: Place Object Warning Panel
-  m_TagString: Untagged
+  m_TagString: Panel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1201,7 +1200,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e02bd4b8f950224408709d14232c157d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panel: {fileID: 692912099}
 --- !u!114 &692912102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1425,8 +1423,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2144036539}
-        m_MethodName: SetPanelActive
+      - m_Target: {fileID: 2144036535}
+        m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1765,9 +1763,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b50ea808f4e003b40a401a578006a3db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panels:
-  - {fileID: 669462801}
-  - {fileID: 2144036535}
+  quitConfirmationPanel: {fileID: 669462801}
 --- !u!1 &1043884844
 GameObject:
   m_ObjectHideFlags: 0
@@ -2485,8 +2481,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 692912101}
-        m_MethodName: SetPanelActive
+      - m_Target: {fileID: 692912099}
+        m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3190,7 +3186,7 @@ GameObject:
   - component: {fileID: 2144036539}
   m_Layer: 5
   m_Name: Select Object Panel
-  m_TagString: Untagged
+  m_TagString: Panel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3266,4 +3262,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e02bd4b8f950224408709d14232c157d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panel: {fileID: 2144036535}

@@ -4,27 +4,19 @@ using UnityEngine;
 
 public class EscapeKeyHandler : MonoBehaviour
 {
-    public GameObject[] panels;
+    public GameObject quitConfirmationPanel;
 
     // Update is called once per frame
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            int i = 0;
-            bool aPanelIsActive = false;
-            while(i < panels.Length && !aPanelIsActive)
-            {
-                if(panels[i].activeInHierarchy)
-                    aPanelIsActive = true;
-                else
-                    ++i;
-            }
+            GameObject[] panels = GameObject.FindGameObjectsWithTag("Panel");
 
-            if(aPanelIsActive)
-                panels[i].GetComponent<PanelHandler>().SetPanelActive(false);
+            if(panels.Length == 0)
+                quitConfirmationPanel.SetActive(true);
             else
-                panels[0].GetComponent<PanelHandler>().SetPanelActive(true);
+                panels[0].SetActive(false);
         }
     }
 }
