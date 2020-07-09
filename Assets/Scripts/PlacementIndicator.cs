@@ -7,8 +7,8 @@ using UnityEngine.XR.ARSubsystems;
 
 public class PlacementIndicator : MonoBehaviour
 {
-    private ARRaycastManager rayManager;
-    private GameObject visual;
+    ARRaycastManager rayManager;
+    GameObject visual;
 
     // Start is called before the first frame update
     void Start()
