@@ -7,14 +7,14 @@ using UnityEngine.XR.ARSubsystems;
 
 public class PlacementIndicator : MonoBehaviour
 {
-    ARRaycastManager rayManager;
+    ARRaycastManager aRRaycastManager;
     GameObject visual;
 
     // Start is called before the first frame update
     void Start()
     {
         // get the components
-        rayManager = FindObjectOfType<ARRaycastManager>();
+        aRRaycastManager = FindObjectOfType<ARRaycastManager>();
         visual = transform.GetChild(0).gameObject;
 
         // hide the placement indicator visual
@@ -26,8 +26,8 @@ public class PlacementIndicator : MonoBehaviour
     {
         // shoot a raycast from the center of the screen
         List<ARRaycastHit> hits = new List<ARRaycastHit>();
-        rayManager.Raycast(new Vector2(Screen.width / 2, Screen.height / 2),
-            hits, TrackableType.Planes);
+        aRRaycastManager.Raycast(new Vector2(Screen.width / 2,
+            Screen.height / 2), hits, TrackableType.Planes);
 
         // if the raycast hits an AR Plane, then update position and rotation
         // of the placement indicator
