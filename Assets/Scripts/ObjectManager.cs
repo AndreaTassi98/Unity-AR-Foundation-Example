@@ -14,7 +14,8 @@ public class ObjectManager : MonoBehaviour
     ARRaycastManager aRRaycastManager;
     GameObject objectToTransform = null;
 
-    float initialTouchDistance = 0f;
+    float previousTouchDistance = 0f;
+    float previousTouchAngle = 0f;
 
     bool removing = false;
 
@@ -102,22 +103,47 @@ public class ObjectManager : MonoBehaviour
                             if (hit.transform.tag == "ARObject")
                             {
                                 objectToTransform = hit.transform.gameObject;
-                                initialTouchDistance =
+                                previousTouchDistance =
                                     Vector3.Distance(touch0.position,
                                     touch1.position);
+                                previousTouchAngle =
+                                    Vector3.SignedAngle(touch1.position -
+                                    touch0.position, transform.right,
+                                    transform.forward);
                             }
                     }
 
-                    if (objectToTransform != null && initialTouchDistance != 0f)
-                        objectToTransform.transform.parent.localScale *=
-                            Vector3.Distance(touch0.position, touch1.position) /
-                            initialTouchDistance;
+                    if (objectToTransform != null)
+                    {
+                        if(previousTouchDistance != 0f)
+                        {
+                            float currentTouchDistance =
+                            Vector3.Distance(touch0.position, touch1.position);
+                            objectToTransform.transform.parent.localScale *=
+                                currentTouchDistance / previousTouchDistance;
+                            previousTouchDistance = currentTouchDistance;
+                        }
+
+                        if(previousTouchAngle != 0f)
+                        {
+                            float currentTouchAngle =
+                            Vector3.SignedAngle(touch1.position -
+                                    touch0.position, transform.right,
+                                    transform.forward);
+                            objectToTransform.transform.parent.Rotate(
+                                transform.up,
+                                currentTouchAngle - previousTouchAngle);
+                            if(currentTouchAngle != 0f)
+                                previousTouchAngle = currentTouchAngle;
+                        }
+                    }
 
                     if (touch0.phase == TouchPhase.Ended ||
                         touch1.phase == TouchPhase.Ended)
                     {
                         objectToTransform = null;
-                        initialTouchDistance = 0f;
+                        previousTouchDistance = 0f;
+                        previousTouchAngle = 0f;
                     }
                 }
             }
